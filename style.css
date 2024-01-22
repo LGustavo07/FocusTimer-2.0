@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --hue: 194;
+    --bg-color: hsl(0, 0, 100%);
+    --text-color: hsl(240, 6%, 21%);
+    --text-color-toglle: hsl(240, 6%, 21%);
+    --text-color-hover: hsl(240, 7%, 60%);
+    --button: hsl(240, 9%, 89%);
+    --button-hover: hsl(194, 97%, 31%);
+    --rain-color: hsl(194, 80%, 21%);
+    --fire-color: hsl(0, 74%, 53%);
+    --tree-color: hsl(111, 28%, 51%);
+    --market-color: hsl(38, 40%, 35%);
+}
+html.light {
+    --text-color: hsla(0, 0%, 100%, 1);
+    --bg-color: hsl(0, 0%, 2%);
+    --button: hsla(0, 0%, 100%, 1);
+    --text-color-hover: hsl(var(--hue), 7%, 60%);
+    --text-color-toglle: hsl(240, 100%, 100%);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+html.light .ph-moon,
+html:not(.light) .ph-sun {
+    display: none;
+}
+
+#toggle-mode {
+    position: absolute;
+    right: 3.2rem;
+    top: 3.2rem;
+    border: none;
+    background: transparent;
+}
+
+#toggle-mode i {
+    font-size: 2.3rem;
+    line-height: 0;
+    color: var(--text-color);
+    border: none;
+    background: transparent;
+}
+
+html.light #toggle-mode i {
+    color: white;
+    border: none;
+    background: transparent;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: grid;
+    height: 100vh;
+    place-content: center;
+    margin: 0;
+}
+
+#app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#stopwatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex {
+    display: flex;
+}
+
+#timer {
+    color: var(--text-color);
+    font-family: "Roboto", sans-serif;
+    font-size: clamp(4rem, 10vw, 13rem);
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.9vh;
+    gap: 3vw;
+}
+
+#controls > button {
+    color: var(--text-color-toglle);
+    background: transparent;
+    border: none;
+    font-size: clamp(2rem, 5vw, 5rem);
+    cursor: pointer;
+}
+
+#controls > button:hover {
+    color: var(--button-hover);
+}
+
+#theme {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2vh;
+    align-items: center;
+    justify-content: center;
+    margin: 4.5vh;
+}
+
+#theme > button {
+    background-color: var(--button);
+    color: --text-color-toglle;
+    border: none;
+    font-size: clamp(2rem, 5vw, 7rem);
+    border-radius: clamp(1rem, 2vw, 2.4rem);
+    width: clamp(5rem, 13.8vw, 13.8rem);
+    height: clamp(5rem, 15.2vh, 15.2rem);
+    margin: 1.6vw;
+    cursor: pointer;
+}
+
+#theme > button:hover {
+    background-color: var(--button-hover);
+    color: white;
+}
+
+#theme > button.rain {
+    background-color: var(--rain-color);
+    color: #fff;
+}
+
+#theme > button.fire {
+    background-color: var(--fire-color);
+    color: #fff;
+}
+
+#theme > button.tree {
+    background-color: var(--tree-color);
+    color: #fff;
+}
+
+#theme > button.market {
+    background-color: var(--market-color);
+    color: #fff;
+}
+
+/* controls */
+.running .ph-play-circle,
+html:not(.running) .ph-pause-circle {
+    display: none;
+}
